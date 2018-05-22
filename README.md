@@ -1,3 +1,7 @@
+原地址：https://github.com/openzipkin/zipkin/
+默认是存在内存中，如果要持久化需要添加参数配置，如在eclipse下使用MYSQL,在虚拟参数添加以下配置即可
+-DSTORAGE_TYPE=mysql -DMYSQL_HOST=localhost -DMYSQL_TCP_PORT=3306 -DMYSQL_USER=root -DMYSQL_PASS=root -DMYSQL_DB=zipkin 
+-DMYSQL_MAX_CONNECTIONS=200 -DMYSQL_USE_SSL=false
 # zipkin-server
 zipkin-server is a [Spring Boot](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/) application, packaged as an executable jar. You need JRE 8+ to start zipkin-server.
 
