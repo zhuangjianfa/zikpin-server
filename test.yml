@@ -1,0 +1,23 @@
+dtxd-zipkin-server:
+    environment:
+      - STORAGE_TYPE=elasticsearch
+      - ES_HOSTS=10.2.1.159:9201
+      - ES_INDEX=zipkin
+      - RABBIT_ADDRESSES=10.2.1.159:5672
+      - RABBIT_VIRTUAL_HOST=doupai
+      - RABBIT_USER=doupai
+      - RABBIT_PASSWORD=vOkK4ZwMwlYz0B1795
+    expose:
+    - 9411/tcp
+    image: vpc-dp-registry.bhbapp.cn/soa/zikpin-server/test
+    labels:
+      aliyun.log.timestamp: 'true'
+      aliyun.log_store_stdout: stdout
+      aliyun.probe.initial_delay_seconds: '3'
+      aliyun.probe.timeout_seconds: '10'
+      aliyun.rolling_updates: 'true'
+      aliyun.rolling_updates.parallelism: '1'
+      aliyun.routing.port_9411: zipkin-test.doupaiapp.cc;zipkin-test.doupaiapp.com
+      aliyun.routing.session_sticky: 'false'
+      aliyun.scale: '1'
+    restart: always
